@@ -1,0 +1,329 @@
+body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); 
+    }
+
+    header {
+      background-color: #fefefe89;
+      background: url();
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+      max-height:100px;
+     
+      
+    }
+    .button {
+      background-color: #ffffff;
+      color: #ff0000;
+      border: 20px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      margin-top: 15px;
+      height: fit-content;
+      text-decoration:none;
+      
+    }
+    
+    .button:hover {
+      background-color: #090909;
+    }
+
+    .container {
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .logo {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-top: -70px;
+    }
+    
+
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #f6f3f3;
+      font-weight: bold;
+      cursor:pointer;
+    }
+
+    
+    .greeting {
+      text-align: center;
+      font-size: 24px;
+      margin: 20px 0;
+    }
+   
+    .courses-section {
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 900px;
+      cursor: pointer;
+      margin-right: 90px;
+      
+    }
+
+    .course-card {
+      
+      background-color: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 8px 8px 8px rgb(0, 183, 255);
+  cursor: pointer;
+  float: right; /* add this to align cards to the right side of the UI */
+  margin-left: 10px; /* adjust margin to add some gap between cards */
+}
+.course-cards-container {
+  overflow: hidden; /* add this to clear the float */
+  width: 100%; /* adjust width as needed */
+}
+    .course-card {
+      display: inline-block;
+      width: 300px; /* adjust the width to fit two courses per row */
+      margin-right: 55px;
+      margin-left: 30px; /* add some margin for spacing */
+      gap: 0 rem;
+      grid-template-columns: repeat(3, 1fr); 
+    }
+
+    @media (max-width: 76px) {
+      .course-card {
+        width: 10%; /* make the cards full-width on smaller screens */
+        margin: 0 auto; /* center the cards on smaller screens */
+      }
+    }
+    .card:hover {
+      transform: translateY(-10px);
+  }
+
+    .course-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .course-info {
+      margin-top: 15px;
+      padding: 15px;
+    }
+
+    .course-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .course-description {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .course-instructor {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .instructor-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .instructor-name {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .slide-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(154, 255, 242);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .slide {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(65, 58, 58, 0.859);
+      max-width: 800px;
+      width: 90%;
+    }
+
+    .close-slide {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .main-content {
+      flex: 10;
+      padding: 20px;
+    }
+    .logout-btn {
+      background-color: #0b0b0b;
+      color: rgb(252, 253, 252);
+      border: 20px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      margin-top: 80px;
+      height: 38px;
+      position: fixed; /* Add this line */
+      top: 10px; /* Adjust the top position to your liking */
+      Right: 10px; /* Adjust the right position to your liking */
+      z-index: 1; /* Add this line to ensure the button is on top of other elements */
+  }
+  .logout-btn:hover {
+    background-color: #708080;
+  }  
+  .stats {
+    display:flex;
+    justify-content:space-around;
+    margin-bottom: 5px;
+  }
+  /* Add styles for the footer */
+
+footer {
+  background-color: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: -50px;
+  text-align: center;
+  color: #f7f4f4;
+  clear: both;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  max-height:max-content;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer li {
+  margin-right: 20px;
+}
+
+footer a {
+  color: #fffefe;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #333;
+}
+.sidebar {
+  width: 80px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  transition: width 0.3s;
+  margin-left: -30px;
+}
+.sidebar.expanded {
+  width: 235px;
+}
+.sidebar .menu-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+.sidebar .menu-icon.close {
+  left: auto;
+  right: 20px;
+}
+.sidebar .title {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+.sidebar.expanded .title {
+  display: none;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sidebar ul li {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+}
+.sidebar ul li a:hover {
+  color: #fdbb2d;
+}
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+.sidebar.expanded ul li a span {
+  display: inline;
+}
+.sidebar ul li a span {
+  display: none;
+}
+.toggle-button {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+.toggle-button:hover {
+  color: #fdbb2d;
+}
