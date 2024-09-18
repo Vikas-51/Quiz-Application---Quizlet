@@ -1,0 +1,164 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODING QUIZLET</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
+    <style>
+        /* Add some basic styling for the buttons */
+        input[type="submit"] {
+            background-color: #28d8ff;
+            color: #090909;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff0707;
+        }
+
+        #register-btn {
+            background-color: #08c9fe;
+        }
+
+        #register-btn:hover {
+            background-color: #ff0707;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fa-solid fa-laptop-code"></i> QUIZLET</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <input type="email" required id="email" name="email">
+                <label for="email">Email</label>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" required id="password" name="password">
+                <label for="password">Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <p><input type="checkbox">Remember Me<a href="#"></a></p>
+
+            <input id="btn" type="submit" value="Login">
+
+            <p>Don't have a account? <a href="#" id="register-link">Register</a></p>
+        </form>
+
+        <div id="register-container" style="display:none;">
+            <h2 style="text-align: center;"><i class="fa-solid fa-users"></i></h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <input type="text" required id="name" name="name" placeholder="Full Name">
+                    <label for="name">Full Name</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+        
+                <div class="form-group">
+                    <input type="email" required id="register-email" name="email" placeholder="Email">
+                    <label for="register-email">Email</label>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+        
+                <div class="form-group">
+                    <input type="password" required id="register-password" name="password" placeholder="Password">
+                    <label for="register-password">Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+        
+                <div class="form-group">
+                    <input type="password" required id="confirm-password" name="confirm-password" placeholder="Confirm Password">
+                    <label for="confirm-password">Confirm Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <input id="register-btn" type="submit" value="Register Me">
+                  </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+const registerLink = document.getElementById('register-link');
+const registerContainer = document.getElementById('register-container');
+const registerForm = document.getElementById('register-form');
+
+let users = JSON.parse(localStorage.getItem('users')) || [];
+
+registerLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginForm.style.display = 'none';
+    registerContainer.style.display = 'block';
+});
+
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+    }
+
+    // Check if user already exists
+    const existingUser = users.find((user) => user.email === email);
+    if (existingUser) {
+        alert('User already exists');
+        return;
+    }
+
+    // Create new user object
+    const user = {
+        name,
+        email,
+        password
+    };
+
+    // Add user to local storage
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // Redirect to login page
+    loginForm.style.display = 'block';
+    registerContainer.style.display = 'none';
+});
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Check if user exists
+    const existingUser = users.find((user) => user.email === email && user.password === password);
+    if (!existingUser) {
+        alert('Invalid email or password');
+        return;
+    }
+
+    // Save user details to local storage or database
+    // For now, we'll just save it to local storage
+    localStorage.setItem('email', email);
+    localStorage.setItem('FullName', existingUser.name);
+    localStorage.setItem('password', password);
+    window.location.href = 'App.html';
+});
+    </script>
+    
+</body>
+</html>
+
