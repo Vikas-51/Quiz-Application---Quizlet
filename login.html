@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODING QUIZLET</title>
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
     <style>
         /* Add some basic styling for the buttons */
@@ -31,9 +30,55 @@
         #register-btn:hover {
             background-color: #ff0707;
         }
+
+        /* Video Background Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents scrolling */
+        }
+
+        .video-background {
+            position:absolute; /* Position the video in the background */
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Hides any overflow */
+            z-index: -1; /* Places the video behind other content */
+        }
+
+        video {
+            width: 100%;
+    height: 100%;
+    object-fit:cover; /* Add this property */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-duration: 5ms;
+           
+        }
+        
+
+        .container {
+            position: relative; /* Allows content to be above the video */
+            z-index: 1; /* Places content above the video */
+            color: white; /* Text color for visibility */
+            text-align: center; /* Center the text */
+            padding: 20px; /* Adds some padding */
+        }
     </style>
 </head>
 <body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="13232-246463976_tiny.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <div class="container">
         <h2><i class="fa-solid fa-laptop-code"></i> QUIZLET</h2>
         <form id="login-form">
@@ -46,14 +91,14 @@
             <div class="form-group">
                 <input type="password" required id="password" name="password">
                 <label for="password">Password</label>
-                <i class="fa-solid fa-lock"></i>
+                <i class="fas fa-lock"></i>
             </div>
 
             <p><input type="checkbox">Remember Me<a href="#"></a></p>
 
-            <input id="btn" type="submit" value="Login">
+            <input id="btn" type="submit" value="Login" style="font-size:large;">
 
-            <p>Don't have a account? <a href="#" id="register-link">Register</a></p>
+            <p>Don't have an account? <a href="#" id="register-link">Register</a></p>
         </form>
 
         <div id="register-container" style="display:none;">
@@ -83,82 +128,79 @@
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <div style="display: flex; justify-content: center;">
-                    <input id="register-btn" type="submit" value="Register Me">
-                  </div>
+                    <input id="register-btn" type="submit" value="Register Me" style="height: 30px; width: 100%; border-radius: 100px;">
+                </div>
             </form>
         </div>
     </div>
 
     <script>
         const loginForm = document.getElementById('login-form');
-const registerLink = document.getElementById('register-link');
-const registerContainer = document.getElementById('register-container');
-const registerForm = document.getElementById('register-form');
+        const registerLink = document.getElementById('register-link');
+        const registerContainer = document.getElementById('register-container');
+        const registerForm = document.getElementById('register-form');
 
-let users = JSON.parse(localStorage.getItem('users')) || [];
+        let users = JSON.parse(localStorage.getItem('users')) || [];
 
-registerLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginForm.style.display = 'none';
-    registerContainer.style.display = 'block';
-});
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.style.display = 'none';
+            registerContainer.style.display = 'block';
+        });
 
-registerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('register-email').value;
-    const password = document.getElementById('register-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
 
-    if (password !== confirmPassword) {
-        alert('Passwords do not match');
-        return;
-    }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
 
-    // Check if user already exists
-    const existingUser = users.find((user) => user.email === email);
-    if (existingUser) {
-        alert('User already exists');
-        return;
-    }
+            // Check if user already exists
+            const existingUser  = users.find((user) => user.email === email);
+            if (existingUser ) {
+                alert('User  already exists');
+                return;
+            }
 
-    // Create new user object
-    const user = {
-        name,
-        email,
-        password
-    };
+            // Create new user object
+            const user = {
+                name,
+                email,
+                password
+            };
 
-    // Add user to local storage
-    users.push(user);
-    localStorage.setItem('users', JSON.stringify(users));
+            // Add user to local storage
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
 
-    // Redirect to login page
-    loginForm.style.display = 'block';
-    registerContainer.style.display = 'none';
-});
+            // Redirect to login page
+            loginForm.style.display = 'block';
+            registerContainer.style.display = 'none';
+        });
 
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-    // Check if user exists
-    const existingUser = users.find((user) => user.email === email && user.password === password);
-    if (!existingUser) {
-        alert('Invalid email or password');
-        return;
-    }
+            // Check if user exists
+            const existingUser  = users.find((user) => user.email === email && user.password === password);
+            if (!existingUser ) {
+                alert('Invalid email or password');
+                return;
+            }
 
-    // Save user details to local storage or database
-    // For now, we'll just save it to local storage
-    localStorage.setItem('email', email);
-    localStorage.setItem('FullName', existingUser.name);
-    localStorage.setItem('password', password);
-    window.location.href = 'App.html';
-});
+            // Save user details to local storage or database
+            localStorage.setItem('email', email);
+            localStorage.setItem('FullName', existingUser .name);
+            localStorage.setItem('password', password);
+            window.location.href = 'App.html';
+        });
     </script>
-    
 </body>
 </html>
-
