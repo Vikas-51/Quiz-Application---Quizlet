@@ -1,158 +1,164 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    background: url();
-    
-    overflow: hidden;
-    background-size:cover;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url();
+
+  overflow: hidden;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #background-video {
-    position: relative;
-    transition-delay: 2s;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1; /* Ensure the video is behind the login form */
+  position: relative;
+  transition-delay: 2s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video is behind the login form */
 }
 video {
-    min-width: 100%; /* Ensures the video covers the entire background */
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers the video */
+  min-width: 100%; /* Ensures the video covers the entire background */
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the video */
 }
 
 .content {
-    position: relative; /* Allows content to be above the video */
-    z-index: 1; /* Places content above the video */
-    color: white; /* Text color for visibility */
-    text-align: center; /* Center the text */
-    padding: 20px; /* Adds some padding */
+  position: relative; /* Allows content to be above the video */
+  z-index: 1; /* Places content above the video */
+  color: white; /* Text color for visibility */
+  text-align: center; /* Center the text */
+  padding: 20px; /* Adds some padding */
 }
-.container
-{
-    width: 400px;
-    height: 580px;
-    background: rgba(0, 0, 0, 0.488);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 30px rgba(114, 255, 246, 0.8);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    float: right;
-    border-radius: 20px;
-    border: 3px solid rgba(0, 0, 0, 0.5);
-}
-
-h2
-{
-    color: #ff0000;
-    font-size: 2em;
-    text-transform: uppercase;
-    padding: 20px 0;
+.container {
+  width: 400px;
+  height: 580px;
+  background: rgb(79, 74, 74);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(114, 255, 246, 0.908);
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  float: right;
+  border-radius: 20px;
+  border: 3px solid rgba(10, 240, 240, 0.5);
 }
 
-.form-group
-{
-    position: relative;
-    width: 300px;
-    margin: 30px 0;
-    border-bottom: 3px solid #ffff;
+h2 {
+  color: #ff0000;
+  font-size: 2em;
+  text-transform: uppercase;
+  padding: 20px 0;
 }
 
-.form-group input
-{
-    width: 100%;
-    height: 50px;
-    padding: 0 35px 0 10px;
-    font-size: 1.2em;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
+.form-group {
+  position: relative;
+  width: 300px;
+  margin: 30px 0;
+  border-bottom: 3px solid #ffff;
 }
 
-.form-group label
-{
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 1.2em;
-    color: #fbfbfb;
-    transition: 0.5s;
+.form-group input {
+  width: 100%;
+  height: 50px;
+  padding: 0 35px 0 10px;
+  font-size: 1.2em;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.form-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  color: #fbfbfb;
+  transition: 0.5s;
 }
 
 input:focus ~ label,
-input:valid ~ label
-{
-    top: -5px;
+input:valid ~ label {
+  top: -5px;
 }
 
-.form-group i
-{
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    color: #fe0505;
-    font-size: 1.2em;
+.form-group i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #fe0505;
+  font-size: 1.2em;
 }
 
-p
-{
-    text-align: center;
-    color: #f7f7f7;
-    margin: 10px 0;
+p {
+  text-align: center;
+  color: #f7f7f7;
+  margin: 10px 0;
 }
 
-p>a
-{
-    text-decoration: none;
-    color: #f70707;
-    font-weight: 600;
+p > a {
+  text-decoration: none;
+  color: #f70707;
+  font-weight: 600;
 }
 
-p>a:hover
-{
-    text-decoration: underline;
-    font-style: italic;
+p > a:hover {
+  text-decoration: underline;
+  font-style: italic;
 }
 
-#btn
-{
-    width: 100%;
-    height: 40px;
-    border-radius: 100px;
-    border: none;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: all 0.5s;
+#btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-#btn:hover
-{
-    background: rgb(234, 32, 32);
-    color: #fff;
+#btn:hover {
+  background: rgb(234, 32, 32);
+  color: #fff;
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+
+  /* Optional: You can add a fade-out effect */
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
+.slide-up {
+  animation: slide-up 0.5s forwards; /* Adjust duration as needed */
+}
